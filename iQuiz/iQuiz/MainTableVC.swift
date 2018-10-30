@@ -79,17 +79,25 @@ class TopicsDataSource : NSObject, UITableViewDataSource {
         var cell = tableView.dequeueReusableCell(withIdentifier: "NameTableIdentifier")
         if cell == nil {
             NSLog("Creating new UITableViewCell")
-            cell = UITableViewCell(style: .default, reuseIdentifier: "NameTableIdentifier")
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "NameTableIdentifier")
         }
         
         if indexPath.section == 0 {
             cell?.textLabel?.text = topics.banjoFacts[indexPath.row]
+            cell?.detailTextLabel?.text = "A wide variety of little known facts about the banjo!"
+            cell?.imageView?.image = UIImage(named: "banjo")
         }
         else if indexPath.section == 1 {
             cell?.textLabel?.text = topics.movies[indexPath.row]
+            cell?.detailTextLabel?.text = "With questions ranging from the early 1900's, you'll be surprised by some of these facts!"
+            cell?.imageView?.image = UIImage(named: "movie")
+
         }
         else if indexPath.section == 2 {
             cell?.textLabel?.text = topics.sports[indexPath.row]
+            cell?.detailTextLabel?.text = "Football? Tennis? Tag? Any sport you're thinking of we got it!"
+            cell?.imageView?.image = UIImage(named: "sports")
+
         }
         else {
             assert(false, "Should never get section number \(indexPath.section)")
