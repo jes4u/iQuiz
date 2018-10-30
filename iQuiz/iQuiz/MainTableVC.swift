@@ -22,14 +22,6 @@ class TopicsRepository {
     
     private static let theInstance = TopicsRepository()
     
-    //        func getFamily(lastName: String) -> Topics? {
-    //            if lastName == "Neward" {
-    //                return Family() // this would normally have Neward family data in it
-    //            }
-    //            else {
-    //                return nil
-    //            }
-    //        }
 }
 
 class TopicsDataSource : NSObject, UITableViewDataSource {
@@ -39,7 +31,6 @@ class TopicsDataSource : NSObject, UITableViewDataSource {
     
     let topics : Topics
     
-    //Do I need this
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -106,9 +97,6 @@ class TopicsDataSource : NSObject, UITableViewDataSource {
         return cell!
     }
 }
-
-
-
 
 class MainTableVC: UIViewController, UITableViewDelegate {
     
