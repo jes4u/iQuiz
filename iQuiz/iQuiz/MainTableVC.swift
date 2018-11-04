@@ -5,7 +5,7 @@
 //  Created by iosdev on 10/28/18.
 //  Copyright © 2018 iosdev. All rights reserved.
 //
-
+//part two
 import UIKit
 
 class Topics {
