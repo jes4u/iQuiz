@@ -14,6 +14,14 @@ class QuestionsVC: UIViewController {
         super.viewDidLoad()
         newQuestion()
         // Do any additional setup after loading the view.
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
     }
     var appdata = AppData.shared
     @IBOutlet weak var lblQuestion: UITextView!
@@ -22,6 +30,20 @@ class QuestionsVC: UIViewController {
     @IBOutlet weak var option2: UIButton!
     @IBOutlet weak var option3: UIButton!
     @IBOutlet weak var option4: UIButton!
+    
+    @objc func swipeAction(swipe: UISwipeGestureRecognizer) {
+        switch swipe.direction.rawValue {
+        case 1:
+            appdata.topicQuestion = 0
+            appdata.currentCorrect = false
+            appdata.totalCorrect = 0
+            performSegue(withIdentifier: "segueQuestionToHome", sender: self)
+        case 2:
+            performSegue(withIdentifier: "segueQuestionsToAnswers", sender: self)
+        default:
+            break
+        }
+    }
     
     func newQuestion() {
         switch appdata.topicIdx {

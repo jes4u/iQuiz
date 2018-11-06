@@ -14,14 +14,38 @@ class FinishVC: UIViewController {
         super.viewDidLoad()
         
         fillFinish()
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
         // Do any additional setup after loading the view.
     }
     
     var appdata = AppData.shared
-
     
     @IBOutlet weak var congratulatoryTxt: UILabel!
     @IBOutlet weak var finalScore: UILabel!
+    
+    @objc func swipeAction(swipe: UISwipeGestureRecognizer) {
+        switch swipe.direction.rawValue {
+        case 1:
+            appdata.topicQuestion = 0
+            appdata.currentCorrect = false
+            appdata.totalCorrect = 0
+            performSegue(withIdentifier: "segueToHome", sender: self)
+        case 2:
+            appdata.topicQuestion = 0
+            appdata.currentCorrect = false
+            appdata.totalCorrect = 0
+            performSegue(withIdentifier: "segueToHome", sender: self)
+        default:
+            break
+        }
+    }
     
     func fillFinish() {
         var numQuestions: Int

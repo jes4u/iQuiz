@@ -14,6 +14,14 @@ class AnswersVC: UIViewController {
         super.viewDidLoad()
         
         fillAnswers()
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
         // Do any additional setup after loading the view.
     }
     
@@ -21,6 +29,20 @@ class AnswersVC: UIViewController {
     
     @IBOutlet weak var result: UILabel!
     @IBOutlet weak var correctAnswer: UILabel!
+    
+    @objc func swipeAction(swipe: UISwipeGestureRecognizer) {
+        switch swipe.direction.rawValue {
+        case 1:
+            appdata.topicQuestion = 0
+            appdata.currentCorrect = false
+            appdata.totalCorrect = 0
+            performSegue(withIdentifier: "segueAnswersToHome", sender: self)
+        case 2:
+            btnNext(self)
+        default:
+            break
+        }
+    }
     
     func fillAnswers()  {
         

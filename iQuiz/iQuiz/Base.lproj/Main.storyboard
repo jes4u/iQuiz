@@ -91,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3n-tz-nkD">
-                                <rect key="frame" x="149" y="660" width="115" height="71"/>
+                                <rect key="frame" x="20" y="660" width="374" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Submit"/>
@@ -110,6 +110,7 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="CZL-h6-NnL"/>
                     </view>
                     <connections>
@@ -118,11 +119,13 @@
                         <outlet property="option2" destination="Ly7-o0-hFA" id="04O-XJ-j98"/>
                         <outlet property="option3" destination="yJq-We-3wT" id="UoX-YU-F7r"/>
                         <outlet property="option4" destination="M3j-2U-igA" id="zm6-WP-Jqa"/>
+                        <segue destination="YbA-0J-1lD" kind="show" identifier="segueQuestionToHome" id="Df7-9g-ERQ"/>
+                        <segue destination="5b2-Lt-SmU" kind="show" identifier="segueQuestionsToAnswers" id="iGt-xU-feM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9q-JW-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029.5999999999999" y="113.79310344827587"/>
+            <point key="canvasLocation" x="1028.985507246377" y="113.16964285714285"/>
         </scene>
         <!--AnswerVC-->
         <scene sceneID="eVh-kW-Kr3">
@@ -154,7 +157,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxF-Yv-Otu">
-                                <rect key="frame" x="173" y="626" width="69" height="64"/>
+                                <rect key="frame" x="20" y="626" width="374" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Next"/>
@@ -171,11 +174,12 @@
                         <outlet property="result" destination="MKE-ju-F7x" id="1Vz-29-hZa"/>
                         <segue destination="o7w-5k-ovd" kind="show" identifier="segueToFinal" id="hHj-gJ-GEq"/>
                         <segue destination="pil-H1-B3w" kind="show" identifier="segueToQuestions" id="zXm-cd-q3N"/>
+                        <segue destination="YbA-0J-1lD" kind="show" identifier="segueAnswersToHome" id="Rnx-DI-qtd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klq-Eh-Xyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2069.5999999999999" y="113.79310344827587"/>
+            <point key="canvasLocation" x="2069.5652173913045" y="113.16964285714285"/>
         </scene>
         <!--FinishVC-->
         <scene sceneID="Jjd-q2-VjB">
@@ -231,6 +235,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7hM-TV-drh"/>
+        <segue reference="iGt-xU-feM"/>
+        <segue reference="zXm-cd-q3N"/>
+        <segue reference="Rnx-DI-qtd"/>
     </inferredMetricsTieBreakers>
 </document>
