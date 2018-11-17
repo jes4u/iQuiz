@@ -11,10 +11,29 @@ import UIKit
 
 class MainTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var appdata = AppData.shared
-
+    var newURL : UITextField = UITextField()
+    
+    
+    
     @IBAction func setting(_ sender: Any) {
-        let uiAlert = UIAlertController(title: "Settings", message: "Check back for settings!", preferredStyle: .alert)
-        uiAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let uiAlert = UIAlertController(title: "Settings", message: "Enter JSON URL:", preferredStyle: .alert)
+        
+        uiAlert.addTextField { (text: UITextField) in
+            self.newURL = text
+        }
+        
+        uiAlert.addAction(UIAlertAction(title: "Check Now", style: .default, handler: { (UIAlertAction) in
+            if !Reachability.isConnectedToNetwork() {
+                self.noConnection()
+            }
+            
+            if((self.newURL.text) != nil){
+                print("hi")
+                self.getJSON(link: self.newURL.text!)
+            }
+        }))
+        
+        uiAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(uiAlert, animated: true, completion: nil)
     }
     
@@ -47,10 +66,16 @@ class MainTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func getJSON(link : String) {
         let urlString = link
         guard let url = URL(string: urlString) else
-        { return }
+        {
+            self.throwError()
+            return
+        }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard let data = data else { return }
+            guard let data = data else {
+                self.throwError()
+                return
+            }
             
             do {
                 let list = try
@@ -61,6 +86,8 @@ class MainTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 
             } catch let err{
                 print(err)
+                print("Threw error")
+                self.throwError()
             }
             
             DispatchQueue.main.async {
@@ -70,10 +97,31 @@ class MainTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         
     }
+    
+    func throwError() {
+        let errorAlert = UIAlertController(title: "Error", message: "Download Failed", preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "Exit", style: .default, handler: nil))
+        self.present(errorAlert, animated: true, completion: nil)
 
+    }
+
+    func noConnection() {
+        let noConnection = UIAlertController(title: "No Internet Connection", message: "Using local quiz.", preferredStyle: .alert)
+        noConnection.addAction(UIAlertAction(title: "Exit", style: .default, handler: nil))
+        self.present(noConnection, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
-        self.getJSON(link: "http://tednewardsandbox.site44.com/questions.json")
+        
+        if Reachability.isConnectedToNetwork(){
+            self.getJSON(link: "https://raw.githubusercontent.com/jes4u/iQuiz/partThree/iQuiz/iQuiz/localFiles.JSON")
+        }else{
+            let noConnection = UIAlertController(title: "No Internet Connection", message: "Using local quiz.", preferredStyle: .alert)
+            noConnection.addAction(UIAlertAction(title: "Exit", style: .default, handler: nil))
+            self.present(noConnection, animated: true, completion: nil)
+            appdata.getLocalJSON()
+        }
+        
         
         super.viewDidLoad()
 
