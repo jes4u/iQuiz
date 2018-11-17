@@ -34,12 +34,12 @@ class FinishVC: UIViewController {
         switch swipe.direction.rawValue {
         case 1:
             appdata.topicQuestion = 0
-            appdata.currentCorrect = false
+            appdata.currentCorrect = -1
             appdata.totalCorrect = 0
             performSegue(withIdentifier: "segueToHome", sender: self)
         case 2:
             appdata.topicQuestion = 0
-            appdata.currentCorrect = false
+            appdata.currentCorrect = -1
             appdata.totalCorrect = 0
             performSegue(withIdentifier: "segueToHome", sender: self)
         default:
@@ -48,16 +48,18 @@ class FinishVC: UIViewController {
     }
     
     func fillFinish() {
-        var numQuestions: Int
+        var numQuestions = appdata.dictionary[appdata.topicIdx].questions.count
         
-        switch appdata.topicIdx {
-        case 0:
-            numQuestions = appdata.banjoQuestions.count
-        case 1:
-            numQuestions = appdata.moviesQuestions.count
-        default:
-            numQuestions = appdata.sportsQuestions.count
-        }
+        
+//
+//        switch appdata.topicIdx {
+//        case 0:
+//            numQuestions = appdata.banjoQuestions.count
+//        case 1:
+//            numQuestions = appdata.moviesQuestions.count
+//        default:
+//            numQuestions = appdata.sportsQuestions.count
+//        }
         
         if appdata.totalCorrect == 0 {
             congratulatoryTxt.text = "Yikes"
