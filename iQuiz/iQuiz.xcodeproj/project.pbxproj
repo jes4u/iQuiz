@@ -11,6 +11,7 @@
 		6A2CD45B2186905700ABB329 /* MainTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CD45A2186905700ABB329 /* MainTableVC.swift */; };
 		6A9C1BE4219F79DC009EC5C5 /* localFiles.JSON in Resources */ = {isa = PBXBuildFile; fileRef = 6A9C1BE3219F79DC009EC5C5 /* localFiles.JSON */; };
 		6A9C1BE6219FD583009EC5C5 /* Reachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9C1BE5219FD583009EC5C5 /* Reachable.swift */; };
+		6A9C1BE8219FDA35009EC5C5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A9C1BE7219FDA35009EC5C5 /* Settings.bundle */; };
 		6AAC886D2185028C00DDB39A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC886C2185028C00DDB39A /* AppDelegate.swift */; };
 		6AAC88722185028C00DDB39A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC88702185028C00DDB39A /* Main.storyboard */; };
 		6AAC88742185028D00DDB39A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC88732185028D00DDB39A /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		6A2CD45A2186905700ABB329 /* MainTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableVC.swift; sourceTree = "<group>"; };
 		6A9C1BE3219F79DC009EC5C5 /* localFiles.JSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = localFiles.JSON; sourceTree = "<group>"; };
 		6A9C1BE5219FD583009EC5C5 /* Reachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachable.swift; sourceTree = "<group>"; };
+		6A9C1BE7219FDA35009EC5C5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6AAC88692185028C00DDB39A /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AAC886C2185028C00DDB39A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AAC88712185028C00DDB39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				6AAC88732185028D00DDB39A /* Assets.xcassets */,
 				6AAC88752185028D00DDB39A /* LaunchScreen.storyboard */,
 				6AAC88782185028D00DDB39A /* Info.plist */,
+				6A9C1BE7219FDA35009EC5C5 /* Settings.bundle */,
 			);
 			path = iQuiz;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			files = (
 				6AAC88772185028D00DDB39A /* LaunchScreen.storyboard in Resources */,
 				6A9C1BE4219F79DC009EC5C5 /* localFiles.JSON in Resources */,
+				6A9C1BE8219FDA35009EC5C5 /* Settings.bundle in Resources */,
 				6AAC88742185028D00DDB39A /* Assets.xcassets in Resources */,
 				6AAC88722185028C00DDB39A /* Main.storyboard in Resources */,
 			);
